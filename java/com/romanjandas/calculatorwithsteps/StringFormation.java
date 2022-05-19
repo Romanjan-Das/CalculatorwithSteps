@@ -14,10 +14,11 @@ public class StringFormation{
     private static final char RB=')';
     private static final char EQ='=';
     private static final char DE='.';
-    private static char p,c;
-    private static boolean no_key_pressed=true;
-    private static boolean allow=false;
-    private static int rbn=0,lbn=0;
+    public static char p;
+    private static char c;
+    public static boolean no_key_pressed=true;
+    public static boolean allow=false;
+    public static int rbn=0,lbn=0;
 
     TextView textView;
 
@@ -49,7 +50,12 @@ public class StringFormation{
                     Log.d("mytag",input_string);
                 }
                 else if(c==EQ && rbn==lbn && allow){ // displays the input_string
-                    result=EvaluateString.evaluate_string(input_string);
+                    try{
+                        result=EvaluateString.evaluate_string(input_string);
+                    }
+                    catch(Exception e){
+                        input_string="Some error occured";
+                    }
                     input_string="";
                     no_key_pressed=true;
                     allow=false;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView;
-    Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde;
+    Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,32 @@ public class MainActivity extends AppCompatActivity {
         bmi=findViewById(R.id.button11);
         beq=findViewById(R.id.button7);
         bde=findViewById(R.id.button8);
+        del=findViewById(R.id.button4);
+
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(StringFormation.input_string.length()!=0){
+                    if(StringFormation.input_string.charAt(StringFormation.input_string.length()-1)=='(' && StringFormation.lbn>0){
+                        StringFormation.lbn=StringFormation.lbn-1;
+                    }
+                    if(StringFormation.input_string.charAt(StringFormation.input_string.length()-1)==')' && StringFormation.rbn>0){
+                        StringFormation.rbn=StringFormation.rbn-1;
+                    }
+                    StringFormation.input_string=StringFormation.input_string.substring(0,StringFormation.input_string.length()-1);
+                    if(StringFormation.input_string.length()==0){
+                        StringFormation.no_key_pressed=true;
+                        StringFormation.allow=false;
+                        StringFormation.rbn=0;StringFormation.lbn=0;
+                    }
+                    if(StringFormation.input_string.length()>1){
+                        StringFormation.p=StringFormation.input_string.charAt(StringFormation.input_string.length()-1);
+                    }
+
+                    textView.setText(StringFormation.input_string);
+                }
+            }
+        });
 
         brb.setOnClickListener(new View.OnClickListener() {
             @Override
