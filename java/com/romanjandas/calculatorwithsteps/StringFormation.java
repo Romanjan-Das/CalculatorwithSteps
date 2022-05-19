@@ -48,7 +48,7 @@ public class StringFormation{
                     input_string=input_string+c;
                     Log.d("mytag",input_string);
                 }
-                else if(c==EQ && allow){ // displays the input_string
+                else if(c==EQ && rbn==lbn && allow){ // displays the input_string
                     result=EvaluateString.evaluate_string(input_string);
                     input_string="";
                     no_key_pressed=true;

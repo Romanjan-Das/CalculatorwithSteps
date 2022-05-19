@@ -140,7 +140,7 @@ public class EvaluateString{
             }
             i=i-1;
         }
-        answer=String.format("%.3f",num);
+        answer=String.format("%.2f",num);
     }
 
     private static String look_for_brackets(String s){

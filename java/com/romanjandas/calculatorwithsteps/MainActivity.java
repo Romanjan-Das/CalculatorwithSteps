@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         b8=findViewById(R.id.button13);
         b9=findViewById(R.id.button12);
         b0=findViewById(R.id.button9);
+        bdi=findViewById(R.id.button6);
         bmu=findViewById(R.id.button19);
         bpl=findViewById(R.id.button15);
         bmi=findViewById(R.id.button11);
@@ -37,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
         brb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StringFormation.verify_input('(');
+                StringFormation.verify_input(')');
                 textView.setText(StringFormation.input_string);
             }
         });
         blb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StringFormation.verify_input(')');
+                StringFormation.verify_input('(');
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -132,14 +133,13 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(StringFormation.input_string);
             }
         });
-        /*
         bdi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StringFormation.verify_input()('%')
+                StringFormation.verify_input('/');
                 textView.setText(StringFormation.input_string);
             }
-        }); */
+        });
         bmu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('=');
-                textView.setText(StringFormation.result);
+                if(!StringFormation.result.equals("")){
+                    textView.setText(StringFormation.result);
+                }
             }
         });
         bde.setOnClickListener(new View.OnClickListener() {
