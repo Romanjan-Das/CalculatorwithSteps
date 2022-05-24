@@ -67,9 +67,9 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/gainsboro"
-                android:text="Del"
+                android:text="C"
                 android:textColor="@color/dark_grey"
-                android:textSize="20sp" />
+                android:textSize="26sp" />
 
             <Button
                 android:id="@+id/button6"

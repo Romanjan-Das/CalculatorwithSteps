@@ -31,6 +31,7 @@ public class StringFormation{
                         no_key_pressed=false;
                         allow=true;
                         rbn=0;lbn=0;
+                        if(c==LB){lbn=1;}
                     }
                 }
                 else{   // run this -> if a char is entered previously, checks elligibility of char c wrt to p,previous char
@@ -50,6 +51,7 @@ public class StringFormation{
                     Log.d("mytag",input_string);
                 }
                 else if(c==EQ && rbn==lbn && allow){ // displays the input_string
+                    Log.d("mytag",rbn+","+lbn);
                     try{
                         result=EvaluateString.evaluate_string(input_string);
                     }
@@ -101,7 +103,7 @@ public class StringFormation{
     }
 
     private static boolean amu(){ // allow multi
-        if(p==RB||p==DI||p==PL||p==MI||p==DE||p==MU){
+        if(p==LB||p==DI||p==PL||p==MI||p==DE||p==MU){
             return false;
         }
         else{
