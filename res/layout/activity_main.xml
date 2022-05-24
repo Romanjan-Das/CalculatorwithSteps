@@ -24,10 +24,11 @@
             android:layout_height="160dp"
             android:layout_marginBottom="15dp"
             android:background="#F6F6F6"
-            android:backgroundTint="#F6F6F6"
+            android:backgroundTint="@color/white"
             android:gravity="bottom|right"
             android:padding="5dp"
             android:text="Let's calculate.."
+            android:textColor="@color/dark_grey"
             android:textSize="26sp" />
 
         <LinearLayout
@@ -42,7 +43,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="("
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -54,7 +55,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text=")"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -66,7 +67,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="C"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -78,9 +79,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="/"
-                android:textColor="@color/dark_grey"
+                android:textColor="@color/teal_200"
                 android:textSize="26sp" />
         </LinearLayout>
 
@@ -96,7 +97,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="1"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -108,7 +109,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="2"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -120,7 +121,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="3"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -132,9 +133,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="x"
-                android:textColor="@color/dark_grey"
+                android:textColor="@color/teal_200"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -150,7 +151,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="4"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -162,7 +163,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="5"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -174,7 +175,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="6"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -186,9 +187,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="+"
-                android:textColor="@color/dark_grey"
+                android:textColor="@color/teal_200"
                 android:textSize="26sp" />
         </LinearLayout>
 
@@ -204,7 +205,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="7"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -216,7 +217,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="8"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -228,7 +229,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="9"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -240,9 +241,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="-"
-                android:textColor="@color/dark_grey"
+                android:textColor="@color/teal_200"
                 android:textSize="26sp" />
         </LinearLayout>
 
@@ -258,7 +259,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -270,7 +271,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="0"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -282,7 +283,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/white"
                 android:text="."
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
@@ -294,9 +295,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gainsboro"
+                android:backgroundTint="@color/teal_200"
                 android:text="="
-                android:textColor="@color/dark_grey"
+                android:textColor="@color/white"
                 android:textSize="26sp" />
         </LinearLayout>
 
