@@ -79,7 +79,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/gainsboro"
-                android:text="÷"
+                android:text="/"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
         </LinearLayout>

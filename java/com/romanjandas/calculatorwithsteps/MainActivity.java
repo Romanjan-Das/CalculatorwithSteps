@@ -178,7 +178,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 StringFormation.verify_input('=');
                 if(!StringFormation.result.equals("")){
-                    textView.setText(StringFormation.result);
+                    //textView.setText(StringFormation.result);
+                    textView.setText(StringFormation.input_string);
                 }
             }
         });

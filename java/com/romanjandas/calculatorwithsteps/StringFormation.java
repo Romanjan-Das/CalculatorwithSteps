@@ -58,9 +58,11 @@ public class StringFormation{
                     catch(Exception e){
                         input_string="Some error occured";
                     }
-                    input_string="";
-                    no_key_pressed=true;
-                    allow=false;
+                    //input_string="";
+                    //no_key_pressed=true;
+                    //allow=false;
+                    input_string=result;
+                    p=input_string.charAt(input_string.length()-1);
                 }
     }
 
