@@ -16,6 +16,8 @@ public class EvaluateString{
         private static String left_of_equation="";
         private static String right_of_equation="";
         private static String temp_equation="random_temp_equation";
+
+        public static String steps="";
   
     public static String evaluate_string(String s){
         while(!temp_equation.equals(s)){
@@ -30,6 +32,7 @@ public class EvaluateString{
             left_of_equation="";right_of_equation="";
             Log.d("mytag", "step 4: " + answer);
             Log.d("mytag", "step 5: " + s);
+            steps=steps+"\n"+s;
             if(answer.equals(s)){
                 break;
             }

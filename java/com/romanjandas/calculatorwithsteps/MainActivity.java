@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView;
+    TextView textView,textView2;
     Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView=findViewById(R.id.textView);
+        textView2=findViewById(R.id.textView2);
         brb=findViewById(R.id.button2);
         blb=findViewById(R.id.button3);
         b1=findViewById(R.id.button22);
@@ -180,6 +181,8 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);
                     textView.setText(StringFormation.input_string);
+                    textView2.setText(EvaluateString.steps);
+                    EvaluateString.steps="";
                 }
             }
         });

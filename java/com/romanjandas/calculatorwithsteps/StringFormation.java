@@ -53,6 +53,7 @@ public class StringFormation{
                 else if(c==EQ && rbn==lbn && allow){ // displays the input_string
                     Log.d("mytag",rbn+","+lbn);
                     try{
+                        EvaluateString.steps=input_string;
                         result=EvaluateString.evaluate_string(input_string);
                     }
                     catch(Exception e){
