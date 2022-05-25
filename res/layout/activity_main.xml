@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -80,10 +81,12 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:text="CE"
                 android:textColor="@color/dark_grey"
-                android:textSize="26sp" />
+                android:textSize="26sp"
+                app:icon="@drawable/del_small"
+                app:iconSize="@android:dimen/app_icon_size"
+                app:iconTintMode="add"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
                 android:id="@+id/button6"
