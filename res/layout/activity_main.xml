@@ -81,7 +81,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:text="C"
+                android:text="CE"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp" />
 
@@ -273,9 +273,9 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:text=" "
+                android:text="C"
                 android:textColor="@color/dark_grey"
-                android:textSize="12sp"
+                android:textSize="26sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button

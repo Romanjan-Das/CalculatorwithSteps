@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView,textView2;
-    Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del;
+    Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del,clear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
         beq=findViewById(R.id.button7);
         bde=findViewById(R.id.button8);
         del=findViewById(R.id.button4);
+        clear=findViewById(R.id.button10);
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StringFormation.no_key_pressed=true;
+                StringFormation.input_string="";
+                EvaluateString.steps="";
+                textView.setText("");
+                textView2.setText("");
+            }
+        });
 
         del.setOnClickListener(new View.OnClickListener() {
             @Override
