@@ -2,6 +2,9 @@ package com.romanjandas.calculatorwithsteps;
 
 import android.util.Log;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class EvaluateString{
         private static final char PLUS='+';
         private static final char MINUS='-';
@@ -9,6 +12,8 @@ public class EvaluateString{
         private static final char MULTIPLY='x';
         private static final char LEFTBRACKET='(';
         private static final char RIGHTBRACKET=')';
+        private static final String DEC_PAT=".00000";
+        private static final String DEC_REP="";
 
         private static String process_string="";
         private static String temp_string="initial_random_string";
@@ -65,6 +70,7 @@ public class EvaluateString{
     }
 
     private static void divide_or_multiply(int i,boolean operator){
+        Pattern p=Pattern.compile(DEC_PAT);
         int k,l; String leftString="",rightString="",leftOfResult="",rightOfResult=""; double leftNumber,rightNumber,resultNumber;
         int j=i;
         j=j-1;
@@ -105,13 +111,15 @@ public class EvaluateString{
         if(operator){
             resultNumber=leftNumber/rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    steps=steps+"\n"+left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation;
+                    Matcher m=p.matcher(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation);
+                    steps=steps+"\n"+m.replaceAll(DEC_REP);
 
         }
         if(!operator){
             resultNumber=leftNumber*rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    steps=steps+"\n"+left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation;
+                    Matcher m=p.matcher(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation);
+                    steps=steps+"\n"+m.replaceAll(DEC_REP);
         }
     }
 
@@ -136,6 +144,7 @@ public class EvaluateString{
     }
 
     private static void add_or_subtract(String s){
+        Pattern p2=Pattern.compile(DEC_PAT);
         int i=s.length()-1; String str=""; double num=0;
         while(i!=-1){
             str=s.charAt(i)+str;
@@ -146,6 +155,8 @@ public class EvaluateString{
             i=i-1;
         }
         answer=String.format("%.5f",num);
+        Matcher m2=p2.matcher(answer);
+        answer=m2.replaceAll(DEC_REP);
     }
 
     private static String look_for_brackets(String s){
