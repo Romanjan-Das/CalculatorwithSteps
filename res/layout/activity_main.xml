@@ -81,10 +81,14 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:textColor="@color/dark_grey"
                 android:textSize="26sp"
                 app:icon="@drawable/del_small"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
                 app:iconSize="@android:dimen/app_icon_size"
+                app:iconTint="@android:color/transparent"
                 app:iconTintMode="add"
                 tools:ignore="SpeakableTextPresentCheck" />
 
