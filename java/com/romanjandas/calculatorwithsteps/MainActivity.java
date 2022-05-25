@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView,textView2;
@@ -78,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input(')');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -85,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('(');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -92,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('1');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -99,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('2');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -106,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('3');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -113,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('4');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -120,6 +139,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('5');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -127,6 +149,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('6');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -134,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('7');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -141,6 +169,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('8');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -148,6 +179,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('9');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -155,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('0');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -162,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('+');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -169,6 +209,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('-');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -176,6 +219,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('/');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -183,6 +229,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('x');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -190,6 +239,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('=');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);
                     textView.setText(StringFormation.input_string);
@@ -202,6 +254,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.verify_input('.');
+                if(!StringFormation.allow){
+                    Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
