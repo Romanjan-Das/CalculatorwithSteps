@@ -32,7 +32,7 @@ public class EvaluateString{
             left_of_equation="";right_of_equation="";
             Log.d("mytag", "step 4: " + answer);
             Log.d("mytag", "step 5: " + s);
-            steps=steps+"\n"+s;
+            //steps=steps+"\n"+s;
             if(answer.equals(s)){
                 break;
             }
@@ -87,13 +87,14 @@ public class EvaluateString{
             }
             if(process_string.charAt(j)==MINUS || process_string.charAt(j)==PLUS || process_string.charAt(j)==MULTIPLY || process_string.charAt(j)==DIVIDE){
                 l=j;
+                while(l<process_string.length()){
+                    rightOfResult=rightOfResult+process_string.charAt(l);
+                    l++;
+                }
                 break;
             }
         }
-        while(l<process_string.length()){
-            rightOfResult=rightOfResult+process_string.charAt(l);
-            l++;
-        }
+
 
         while(k>-1){
             leftOfResult=process_string.charAt(k)+leftOfResult;
@@ -104,13 +105,13 @@ public class EvaluateString{
         if(operator){
             resultNumber=leftNumber/rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    //steps=steps+"\n"+left_of_equation+leftOfResult+String.format("%.2f",resultNumber)+rightOfResult+right_of_equation;
+                    steps=steps+"\n"+left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation;
 
         }
         if(!operator){
             resultNumber=leftNumber*rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    //steps=steps+"\n"+left_of_equation+leftOfResult+String.format("%.2f",resultNumber)+rightOfResult+right_of_equation;
+                    steps=steps+"\n"+left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation;
         }
     }
 
@@ -144,7 +145,7 @@ public class EvaluateString{
             }
             i=i-1;
         }
-        answer=String.format("%.2f",num);
+        answer=String.format("%.5f",num);
     }
 
     private static String look_for_brackets(String s){
