@@ -104,12 +104,13 @@ public class EvaluateString{
         if(operator){
             resultNumber=leftNumber/rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
+                    steps=leftOfResult+String.format("%.2f",resultNumber)+rightOfResult+"\n";
 
         }
         if(!operator){
             resultNumber=leftNumber*rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-
+                    steps=leftOfResult+String.format("%.2f",resultNumber)+rightOfResult+"\n";
         }
     }
 

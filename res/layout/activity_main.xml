@@ -26,9 +26,10 @@
             android:layout_marginBottom="5dp"
             android:padding="1dp"
             android:paddingEnd="10dp"
-            android:text="TextView"
+            android:text=" "
             android:textAlignment="textEnd"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textView"
