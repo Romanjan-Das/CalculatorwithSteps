@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringFormation.no_key_pressed=true;
+                StringFormation.allow=false;
                 StringFormation.input_string="";
                 EvaluateString.steps="";
                 textView.setText("");
