@@ -19,10 +19,17 @@ public class StringFormation{
     public static boolean no_key_pressed=true;
     public static boolean allow=false;
     public static int rbn=0,lbn=0;
+    public static boolean equal_is_pressed=false;
 
     TextView textView;
 
     public static void verify_input(char x){
+        if(equal_is_pressed && cn(x)){
+            no_key_pressed=true; allow=false; input_string=""; EvaluateString.steps=""; equal_is_pressed=false;
+        }
+        else {
+            equal_is_pressed=false;
+        }
         c=x;
         Log.d("mytag",Character.toString(x));
                 if(no_key_pressed){ // run this -> if no char is entered previously, only allow (,- and numbers

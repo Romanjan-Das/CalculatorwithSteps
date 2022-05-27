@@ -299,6 +299,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText(StringFormation.input_string);
                     textView2.setText(EvaluateString.steps);
                     EvaluateString.steps="";
+                    StringFormation.equal_is_pressed=true;
                 }
             }
         });
