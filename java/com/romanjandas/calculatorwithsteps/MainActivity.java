@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -92,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('(');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -103,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -112,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('2');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -123,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -132,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('4');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -143,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -152,6 +173,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('6');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -163,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -172,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('8');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -183,6 +213,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -192,6 +225,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('0');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -203,6 +239,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -212,6 +251,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('-');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(false);
                 }
                 textView.setText(StringFormation.input_string);
             }
@@ -223,6 +265,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -233,6 +278,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
@@ -242,6 +290,9 @@ public class MainActivity extends AppCompatActivity {
                 StringFormation.verify_input('=');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    makeTextBig(true);
                 }
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);
@@ -258,10 +309,22 @@ public class MainActivity extends AppCompatActivity {
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    makeTextBig(false);
+                }
                 textView.setText(StringFormation.input_string);
             }
         });
 
+    }
+
+    private void makeTextBig(boolean big){
+        if(big){
+            textView.setTextSize(50);
+        }
+        if(!big){
+            textView.setTextSize(28);
+        }
     }
 
 
