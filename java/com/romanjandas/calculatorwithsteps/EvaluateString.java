@@ -111,20 +111,21 @@ public class EvaluateString{
         if(operator){
             resultNumber=leftNumber/rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    Matcher m=p.matcher(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation);
+                    Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
                     steps=steps+"\n"+m.replaceAll(DEC_REP);
 
         }
         if(!operator){
             resultNumber=leftNumber*rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    Matcher m=p.matcher(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation);
+                    Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
                     steps=steps+"\n"+m.replaceAll(DEC_REP);
         }
     }
 
     private static String simplifyString(String s){
         int i=0; String tempString="";
+        /*
         while(i<s.length()){
             if(s.charAt(i)==PLUS && s.charAt(i+1)==MINUS){
                 tempString=tempString+"-";
@@ -139,6 +140,31 @@ public class EvaluateString{
                 i++;
             }
             
+        }
+        */
+        int k=0; boolean l=false;
+        while(i<s.length()){
+            if(s.charAt(i)!=PLUS && s.charAt(i)!=MINUS){
+                tempString=tempString+s.charAt(i);
+                i++;
+            }
+            else{
+                while(s.charAt(i)==PLUS || s.charAt(i)==MINUS){
+                    if(s.charAt(i)==MINUS){
+                        k++;
+                    }
+                    i++;
+                    l=true;
+                }
+                if(k%2!=0 && l){
+                    tempString=tempString+"-";
+                    k=0; l=false;
+                }
+                else if(k%2==0 && l){
+                    tempString=tempString+"+";
+                    k=0; l=false;
+                }
+            }
         }
         return tempString;
     }
