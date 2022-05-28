@@ -287,17 +287,19 @@ public class MainActivity extends AppCompatActivity {
         beq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String OldInput=StringFormation.input_string;
                 StringFormation.verify_input('=');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     makeTextBig(true);
+                    textView2.setText(OldInput);
                 }
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);
                     textView.setText(StringFormation.input_string);
-                    textView2.setText(EvaluateString.steps);
+                    //textView2.setText(EvaluateString.steps);
                     EvaluateString.steps="";
                     StringFormation.equal_is_pressed=true;
                 }

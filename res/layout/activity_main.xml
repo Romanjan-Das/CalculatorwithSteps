@@ -32,6 +32,7 @@
             android:text=" "
             android:textAlignment="textEnd"
             android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
