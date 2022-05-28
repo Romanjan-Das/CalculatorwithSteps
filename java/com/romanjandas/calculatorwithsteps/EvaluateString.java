@@ -14,6 +14,7 @@ public class EvaluateString{
         private static final char RIGHTBRACKET=')';
         private static final String DEC_PAT=".00000";
         private static final String DEC_REP="";
+        private static final String ZERO="0";
 
         private static String process_string="";
         private static String temp_string="initial_random_string";
@@ -112,14 +113,18 @@ public class EvaluateString{
             resultNumber=leftNumber/rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
                     Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
-                    steps=steps+"\n"+m.replaceAll(DEC_REP);
+                    if(!ZERO.equals(m.replaceAll(DEC_REP))){
+                        steps=steps+"\n"+m.replaceAll(DEC_REP);
+                    }
 
         }
         if(!operator){
             resultNumber=leftNumber*rightNumber;
                     process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
                     Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
-                    steps=steps+"\n"+m.replaceAll(DEC_REP);
+                    if(!ZERO.equals(m.replaceAll(DEC_REP))){
+                        steps=steps+"\n"+m.replaceAll(DEC_REP);
+                    }
         }
     }
 
@@ -181,8 +186,42 @@ public class EvaluateString{
             i=i-1;
         }
         answer=String.format("%.5f",num);
-        Matcher m2=p2.matcher(answer);
-        answer=m2.replaceAll(DEC_REP);
+        int f=answer.length()-1; String temp=""; //String tempx="";
+        /*
+        while(f>-1){
+            temp=answer.charAt(f)+temp;
+            if(answer.charAt(f)=='.'){
+                Matcher m2=p2.matcher(temp);
+                temp=m2.replaceAll(DEC_REP);
+                Log.d("mytag",temp+"  <- temp");
+                break;
+            }
+            f=f-1;
+        }
+        f=f-1;
+        */
+        while(answer.charAt(f)=='0'){
+            f=f-1;
+        }
+        if(answer.charAt(f)=='.'){
+            f=f-1;
+        }
+        while(f>-1){
+            temp=answer.charAt(f)+temp;
+            f=f-1;
+        }
+        /*
+        while(f>-1){
+            tempx=answer.charAt(f)+tempx;
+            f=f-1;
+        }
+        Log.d("mytag",tempx+"  <--tempx");
+        answer=tempx+temp;
+        */
+        answer=temp;
+        Log.d("mytag",answer+"  <-answer");
+        //Matcher m2=p2.matcher(answer);
+        //answer=m2.replaceAll(DEC_REP);
     }
 
     private static String look_for_brackets(String s){
