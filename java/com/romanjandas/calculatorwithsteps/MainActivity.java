@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     TextView textView,textView2;
     Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del,clear;
+    private static String OldInput="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     if(StringFormation.input_string.length()>1){
                         StringFormation.p=StringFormation.input_string.charAt(StringFormation.input_string.length()-1);
                     }
-
+                    makeTextBig(false);
                     textView.setText(StringFormation.input_string);
                 }
             }
@@ -287,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
         beq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String OldInput=StringFormation.input_string;
+                OldInput=StringFormation.input_string;
                 StringFormation.verify_input('=');
                 if(!StringFormation.allow){
                     Toast.makeText(MainActivity.this, "wrong input", Toast.LENGTH_SHORT).show();
@@ -322,11 +323,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeTextBig(boolean big){
-        if(big){
-            textView.setTextSize(50);
+        int x=StringFormation.input_string.length();
+        if(x<11){
+            if(big){
+                textView.setTextSize(50);
+            }
+            if(!big){
+                textView.setTextSize(28);
+            }
         }
-        if(!big){
-            textView.setTextSize(28);
+        else if(x>10 && x<20){
+                textView.setTextSize(28);
+        }
+        else if(x>19 && x<24){
+            textView.setTextSize(24);
+        }
+        else{
+            textView.setTextSize(46-x);
+        }
+
+        int y=OldInput.length();
+        if(y<30){
+            textView2.setTextSize(16);
+        }
+        else{
+            textView2.setTextSize(42-y);
         }
     }
 
