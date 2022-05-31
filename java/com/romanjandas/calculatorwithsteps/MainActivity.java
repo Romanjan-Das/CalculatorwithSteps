@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     TextView textView,textView2;
     Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del,clear;
-    private static String OldInput="";
+    private static String OldInput=""; private static String tooLarge="Number too large";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -299,7 +299,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);
-                    textView.setText(StringFormation.input_string);
+                    if(EvaluateString.number_too_large){
+                        textView.setText(tooLarge);
+
+                        StringFormation.no_key_pressed=true;
+                        StringFormation.allow=false;
+                        StringFormation.input_string="";
+                        EvaluateString.steps="";
+                        textView2.setText("");
+
+                        EvaluateString.number_too_large=false;
+                    }
+                    else{
+                        textView.setText(StringFormation.input_string);
+                    }
                     //textView2.setText(EvaluateString.steps);
                     EvaluateString.steps="";
                     StringFormation.equal_is_pressed=true;
@@ -323,7 +336,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeTextBig(boolean big){
-        int x=StringFormation.input_string.length();
+        int x;
+        if(EvaluateString.number_too_large){
+            x=tooLarge.length();
+        }
+        else{
+            x=StringFormation.input_string.length();
+        }
         if(x<11){
             if(big){
                 textView.setTextSize(50);

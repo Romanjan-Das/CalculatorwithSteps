@@ -24,6 +24,8 @@ public class EvaluateString{
         private static String temp_equation="random_temp_equation";
 
         public static String steps="";
+        public static boolean number_too_large=false;
+        private static int number_max_size=15;
   
     public static String evaluate_string(String s){
         while(!temp_equation.equals(s)){
@@ -109,24 +111,47 @@ public class EvaluateString{
             k=k-1;
         }
         Log.d("mytag",leftString+" <-leftstring, "+rightString+" <-rightString, "+Double.parseDouble(rightString)+" <-rightNumber");
-        leftNumber=Double.parseDouble(leftString);
-        rightNumber=Double.parseDouble(rightString);
-        if(operator){
-            resultNumber=leftNumber/rightNumber;
-                    process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
-                    if(!ZERO.equals(m.replaceAll(DEC_REP))){
-                        steps=steps+"\n"+m.replaceAll(DEC_REP);
-                    }
-
+        if(len_of_num(leftString)>number_max_size || len_of_num(rightString)>number_max_size){
+            number_too_large=true;
+            Log.d("mytag","number too large-> "+leftString+","+rightString+",len_of_num:"+len_of_num(leftString)+", "+len_of_num(rightString));
         }
-        if(!operator){
-            resultNumber=leftNumber*rightNumber;
-                    process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                    Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
-                    if(!ZERO.equals(m.replaceAll(DEC_REP))){
-                        steps=steps+"\n"+m.replaceAll(DEC_REP);
-                    }
+        else{
+            leftNumber=Double.parseDouble(leftString);
+            rightNumber=Double.parseDouble(rightString);
+            if(operator){
+                resultNumber=leftNumber/rightNumber;
+                process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
+                Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
+                if(!ZERO.equals(m.replaceAll(DEC_REP))){
+                    steps=steps+"\n"+m.replaceAll(DEC_REP);
+                }
+
+            }
+            if(!operator){
+                resultNumber=leftNumber*rightNumber;
+                process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
+                Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
+                if(!ZERO.equals(m.replaceAll(DEC_REP))){
+                    steps=steps+"\n"+m.replaceAll(DEC_REP);
+                }
+            }
+        }
+
+    }
+
+    private static int len_of_num(String x){
+        int y=x.length(); int j=0;
+        for(int i=0;i<y;i++){
+            if(x.charAt(i)=='.'){
+                j=i;
+            }
+        }
+
+        if(j==0){
+            return y;
+        }
+        else{
+            return j;
         }
     }
 
@@ -182,8 +207,14 @@ public class EvaluateString{
         while(i!=-1){
             str=s.charAt(i)+str;
             if(MINUS==s.charAt(i) || PLUS==s.charAt(i) || i==0){
-                num=Double.parseDouble(str)+num;
-                str="";
+                if(len_of_num(str)>number_max_size){
+                    number_too_large=true;
+                    Log.d("mytag","number to large -> "+str+",len_of_num:"+len_of_num(str));
+                }
+                else{
+                    num=Double.parseDouble(str)+num;
+                    str="";
+                }
             }
             i=i-1;
         }
