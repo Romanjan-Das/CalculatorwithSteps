@@ -47,6 +47,7 @@ public class EvaluateString{
     }
 
     private static void process_of_evaluation_of_simple_string(){
+        process_string=simplifyString(process_string);
         while(temp_string!=process_string){
             temp_string=process_string;
             checkForMultiplyOrDivisionSign(process_string);        
@@ -107,6 +108,7 @@ public class EvaluateString{
             leftOfResult=process_string.charAt(k)+leftOfResult;
             k=k-1;
         }
+        Log.d("mytag",leftString+" <-leftstring, "+rightString+" <-rightString, "+Double.parseDouble(rightString)+" <-rightNumber");
         leftNumber=Double.parseDouble(leftString);
         rightNumber=Double.parseDouble(rightString);
         if(operator){
