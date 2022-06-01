@@ -1,7 +1,6 @@
 package com.romanjandas.calculatorwithsteps;
 
 import android.util.Log;
-import android.widget.TextView;
 
 public class StringFormation{
     public static String input_string="";
@@ -21,9 +20,10 @@ public class StringFormation{
     public static int rbn=0,lbn=0;
     public static boolean equal_is_pressed=false;
 
-    TextView textView;
+
 
     public static void verify_input(char x){
+        Log.d("mytag",EvaluateString.f_num+". "+"verify_input"+" : "+x); EvaluateString.f_num++;
         if(equal_is_pressed && cn(x)){
             no_key_pressed=true; allow=false; input_string=""; EvaluateString.steps=""; equal_is_pressed=false;
         }
@@ -31,8 +31,7 @@ public class StringFormation{
             equal_is_pressed=false;
         }
         c=x;
-        Log.d("mytag",Character.toString(x));
-                if(no_key_pressed){ // run this -> if no char is entered previously, only allow (,- and numbers
+                if(no_key_pressed){
                     if(c==LB||c==MI||cn(c)){
                         p=c;
                         no_key_pressed=false;
@@ -41,7 +40,7 @@ public class StringFormation{
                         if(c==LB){lbn=1;}
                     }
                 }
-                else{   // run this -> if a char is entered previously, checks elligibility of char c wrt to p,previous char
+                else{
                     if(c==LB){allow=alb();}
                     if(c==RB){allow=arb();}
                     if(c==DI){allow=adi();}
@@ -52,13 +51,11 @@ public class StringFormation{
                     if(cn(c)){allow=anu();}
                     if(c==EQ){allow=aeq();}
                 } 
-                if(c!=EQ && allow){ // run this -> if elligibility of c wrt p is checked
+                if(c!=EQ && allow){
                     p=c;
                     input_string=input_string+c;
-                    Log.d("mytag",input_string);
                 }
-                else if(c==EQ && rbn==lbn && allow){ // displays the input_string
-                    Log.d("mytag",rbn+","+lbn);
+                else if(c==EQ && rbn==lbn && allow){
                     try{
                         EvaluateString.steps=input_string;
                         result=EvaluateString.evaluate_string(input_string);
@@ -66,15 +63,12 @@ public class StringFormation{
                     catch(Exception e){
                         input_string="Some error occured";
                     }
-                    //input_string="";
-                    //no_key_pressed=true;
-                    //allow=false;
                     input_string=result;
                     p=input_string.charAt(input_string.length()-1);
                 }
     }
 
-    private static boolean cn(char x){ // check if it is a number
+    private static boolean cn(char x){
         if(x=='0'||x=='1'||x=='2'||x=='3'||x=='4'||x=='5'||x=='6'||x=='7'||x=='8'||x=='9'){
             return true;
         }
@@ -83,7 +77,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean alb(){  // allow left brackt..
+    private static boolean alb(){
         if(p==RB||p==DE||cn(p)){
             return false;
         }
@@ -93,7 +87,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean arb(){  // allow right bracket
+    private static boolean arb(){
         if(p==LB||p==DI||p==MU||p==PL||p==MI||p==DE|| rbn==lbn){
             return false;
         }
@@ -103,7 +97,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean adi(){ // allow division
+    private static boolean adi(){
         if(p==LB||p==DI||p==MU||p==PL||p==MI||p==DE){
             return false;
         }
@@ -112,7 +106,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean amu(){ // allow multi
+    private static boolean amu(){
         if(p==LB||p==DI||p==PL||p==MI||p==DE||p==MU){
             return false;
         }
@@ -121,7 +115,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean apl(){ // allow plus
+    private static boolean apl(){
         if(p==LB||p==DI||p==MU||p==MI||p==PL||p==DE){
             return false;
         }
@@ -130,7 +124,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean ami(){ // allow minus
+    private static boolean ami(){
         if(p==PL||p==MI||p==DE){
             return false;
         }
@@ -139,7 +133,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean ade(){ // allow decimal
+    private static boolean ade(){
         if(p==LB||p==RB||p==MU||p==DI||p==PL||p==MI||p==DE){
             return false;
         }
@@ -148,7 +142,7 @@ public class StringFormation{
         }
     }
 
-    private static boolean anu(){ // allow numbers
+    private static boolean anu(){
         if(p==RB){
             return false;
         }
@@ -157,9 +151,9 @@ public class StringFormation{
         }
     }
 
-    private static boolean aeq(){ //allow equal
+    private static boolean aeq(){
         if(p==LB||p==MU||p==DI||p==PL||p==MI||p==DE || rbn!=lbn){
-            c='0'; // removing the eq char
+            c='0';
             return false;
         }
         else{
