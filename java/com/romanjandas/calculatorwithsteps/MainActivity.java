@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             x=StringFormation.input_string.length();
         }
-        if(x<11){
+        if(x<9){
             if(big){
                 textView.setTextSize(50);
             }
@@ -351,18 +351,24 @@ public class MainActivity extends AppCompatActivity {
                 textView.setTextSize(28);
             }
         }
-        else if(x>10 && x<20){
+        else if(x>8 && x<18){
                 textView.setTextSize(28);
         }
-        else if(x>19 && x<24){
+        else if(x>17 && x<22){
             textView.setTextSize(24);
         }
+        else if(x>21 && x<26){
+            textView.setTextSize(20);
+        }
+        else if(x>25 && x<30){
+            textView.setTextSize(16);
+        }
         else{
-            textView.setTextSize(46-x);
+            textView.setTextSize(12);
         }
 
         int y=OldInput.length();
-        if(y<30){
+        if(y<28){
             textView2.setTextSize(16);
         }
         else{
