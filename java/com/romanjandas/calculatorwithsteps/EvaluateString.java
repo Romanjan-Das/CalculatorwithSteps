@@ -137,8 +137,7 @@ public class EvaluateString{
     }
 
     private static int len_of_num(String x){
-        Log.d("mytag",f_num+". "+"len_of_num"+" params--> "+"x="+x); f_num++;
-        int y=x.length(); int j=0;
+        int y=x.length(); int j=0; int val=0;
         for(int i=0;i<y;i++){
             if(x.charAt(i)=='.'){
                 j=i;
@@ -146,11 +145,25 @@ public class EvaluateString{
         }
 
         if(j==0){
-            return y;
+            if(x.charAt(0)=='+'||x.charAt(0)=='-'){
+                val= y-1;
+            }
+            else{
+                val= y;
+            }
+
         }
         else{
-            return j;
+            if(x.charAt(0)=='+'||x.charAt(0)=='-'){
+                val= j-1;
+            }
+            else{
+                val= j;
+            }
+
         }
+        Log.d("mytag",f_num+". "+"len_of_num"+" params--> "+"x="+x+" , return--> val="+val); f_num++;
+        return val;
     }
 
     private static String simplifyString(String s){
