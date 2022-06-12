@@ -1,173 +1,97 @@
 package com.romanjandas.calculatorwithsteps;
 
-import android.util.Log;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class EvaluateString{
-        private static final char PLUS='+';
-        private static final char MINUS='-';
-        private static final char DIVIDE='/';
-        private static final char MULTIPLY='x';
-        private static final char LEFTBRACKET='(';
-        private static final char RIGHTBRACKET=')';
-        private static final String DEC_PAT=".00000";
-        private static final String DEC_REP="";
-        private static final String ZERO="0";
-
-        private static String process_string="";
-        private static String temp_string="initial_random_string";
-        private static String answer="";
-        private static String left_of_equation="";
-        private static String right_of_equation="";
-        private static String temp_equation="random_temp_equation";
-
+        private static final char PLUS='+',MINUS='-',DIVIDE='/',MULTIPLY='x',LEFTBRACKET='(',RIGHTBRACKET=')';
+        private static String process_equation="";
         public static String steps="";
         public static boolean number_too_large=false;
         private static int number_max_size=15;
-
-        public static int f_num=1;
+        private static int[] bracket_position=new int[2];
   
-    public static String evaluate_string(String s){
-        Log.d("mytag",f_num+". "+"evaluate_string"+" params--> "+"s="+s); f_num++;
-        while(!temp_equation.equals(s)){
-            temp_equation=s;
-            process_string=look_for_brackets(s);
-            process_of_evaluation_of_simple_string();
-            s=left_of_equation+answer+right_of_equation;
+    public static String evaluate_string(String input_equation){
+        int m=0; boolean no_brackets;
+        String temp="",left_of_equation="",right_of_equation="",temporary_equation="";
+        steps=input_equation+"\n";
+        while(!temporary_equation.equals(input_equation)){
+            temporary_equation=input_equation;
+            bracket_position=look_for_brackets(input_equation);
+            if(bracket_position[0]==0 && bracket_position[1]==0){
+                process_equation=input_equation; // no brackets
+                no_brackets=true;
+            }
+            else{
+                process_equation=input_equation.substring(bracket_position[0]+1,bracket_position[1]);
+                left_of_equation=input_equation.substring(0,bracket_position[0]);
+                right_of_equation=input_equation.substring(bracket_position[1], input_equation.length()-1);
+                no_brackets=false;
+            }
+            process_equation=remove_redundant_plus_and_minus_sign(process_equation);
+            while(temp!=process_equation){
+                temp=process_equation;
+                m=0;
+                while(m<process_equation.length()){
+                    if(DIVIDE==process_equation.charAt(m)){
+                        divide_or_multiply(m,DIVIDE);
+                        process_equation=remove_redundant_plus_and_minus_sign(process_equation);
+                        if(no_brackets){
+                            steps=steps+process_equation+"\n";
+                        }
+                        else{
+                            steps=steps+left_of_equation+"("+process_equation+")"+right_of_equation+"\n";
+                        }
+                        break;
+                    }
+                    if(MULTIPLY==process_equation.charAt(m)){
+                        divide_or_multiply(m,MULTIPLY);
+                        process_equation=remove_redundant_plus_and_minus_sign(process_equation);
+                        if(no_brackets){
+                            steps=steps+process_equation+"\n";
+                        }
+                        else{
+                            steps=steps+left_of_equation+"("+process_equation+")"+right_of_equation+"\n";
+                        }
+                        break;
+                    }
+                    m++;
+                }        
+            }
+            process_equation=add_or_subtract(process_equation);
+            input_equation=left_of_equation+process_equation+right_of_equation;
+            steps=steps+input_equation+"\n";
             left_of_equation="";right_of_equation="";
-            if(answer.equals(s)){
+            if(process_equation.equals(input_equation)){
                 break;
             }
-        }    
-        return s;
-    }
-
-    private static void process_of_evaluation_of_simple_string(){
-        Log.d("mytag",f_num+". "+"process_of_evaluation_of_simple_string"+" : "+"process_string="+process_string); f_num++;
-        process_string=simplifyString(process_string);
-        while(temp_string!=process_string){
-            temp_string=process_string;
-            checkForMultiplyOrDivisionSign(process_string);        
         }
-        process_string=simplifyString(process_string);
-        add_or_subtract(process_string);
+        System.out.println(steps);
+        return input_equation;
     }
 
-    private static void checkForMultiplyOrDivisionSign(String s){
-        Log.d("mytag",f_num+". "+"checkForMultiplyOrDivisionSign"+" params--> "+"s="+s); f_num++;
-        int m=0;
-        while(m<s.length()){
-            if(DIVIDE==s.charAt(m)){
-                divide_or_multiply(m,true);
-                break;
-            }
-            if(MULTIPLY==s.charAt(m)){
-                divide_or_multiply(m,false);
-                break;
-            }
-            m++;
-        }
-    }
-
-    private static void divide_or_multiply(int i,boolean operator){
-        Log.d("mytag",f_num+". "+"divide_or_multiply"+" params--> "+"i="+i+",operator="+operator); f_num++;
-        Pattern p=Pattern.compile(DEC_PAT);
-        int k,l; String leftString="",rightString="",leftOfResult="",rightOfResult=""; double leftNumber,rightNumber,resultNumber;
-        int j=i;
-        j=j-1;
+    private static int[] look_for_brackets(String s){
+        int i=0;
+        int[] position_of_brackets=new int[2];
         while(true){
-            leftString=process_string.charAt(j)+leftString;
-            j=j-1;
-            if((j==-1) || process_string.charAt(j)==MINUS || process_string.charAt(j)==PLUS || process_string.charAt(j)==MULTIPLY || process_string.charAt(j)==DIVIDE){    
-                k=j;
-                break;
-            }
-        }
-        j=i;
-        j=j+1;
-        while(true){
-            rightString=rightString+process_string.charAt(j);
-            j=j+1;
-            if(j==process_string.length()){ 
-                l=j-1;
-                break;
-            }
-            if(process_string.charAt(j)==MINUS || process_string.charAt(j)==PLUS || process_string.charAt(j)==MULTIPLY || process_string.charAt(j)==DIVIDE){
-                l=j;
-                while(l<process_string.length()){
-                    rightOfResult=rightOfResult+process_string.charAt(l);
-                    l++;
+            if(i<s.length()){
+                if(LEFTBRACKET==s.charAt(i)){
+                    position_of_brackets[0]=i;
                 }
-                break;
-            }
-        }
-
-
-        while(k>-1){
-            leftOfResult=process_string.charAt(k)+leftOfResult;
-            k=k-1;
-        }
-        if(len_of_num(leftString)>number_max_size || len_of_num(rightString)>number_max_size){
-            number_too_large=true;
-        }
-        else{
-            leftNumber=Double.parseDouble(leftString);
-            rightNumber=Double.parseDouble(rightString);
-            if(operator){
-                resultNumber=leftNumber/rightNumber;
-                process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
-                if(!ZERO.equals(m.replaceAll(DEC_REP))){
-                    steps=steps+"\n"+m.replaceAll(DEC_REP);
+                else if(RIGHTBRACKET==s.charAt(i)){
+                    position_of_brackets[1]=i;
+                    break;
                 }
 
-            }
-            if(!operator){
-                resultNumber=leftNumber*rightNumber;
-                process_string=leftOfResult+String.format("%.5f",resultNumber)+rightOfResult;
-                Matcher m=p.matcher(simplifyString(left_of_equation+leftOfResult+String.format("%.5f",resultNumber)+rightOfResult+right_of_equation));
-                if(!ZERO.equals(m.replaceAll(DEC_REP))){
-                    steps=steps+"\n"+m.replaceAll(DEC_REP);
-                }
-            }
-        }
-
-    }
-
-    private static int len_of_num(String x){
-        int y=x.length(); int j=0; int val=0;
-        for(int i=0;i<y;i++){
-            if(x.charAt(i)=='.'){
-                j=i;
-            }
-        }
-
-        if(j==0){
-            if(x.charAt(0)=='+'||x.charAt(0)=='-'){
-                val= y-1;
             }
             else{
-                val= y;
+                position_of_brackets[0]=0;
+                position_of_brackets[1]=0;
+                break;
             }
-
+            i++;
         }
-        else{
-            if(x.charAt(0)=='+'||x.charAt(0)=='-'){
-                val= j-1;
-            }
-            else{
-                val= j;
-            }
-
-        }
-        Log.d("mytag",f_num+". "+"len_of_num"+" params--> "+"x="+x+" , return--> val="+val); f_num++;
-        return val;
+        return position_of_brackets;
     }
 
-    private static String simplifyString(String s){
-        Log.d("mytag",f_num+". "+"simplyfyString"+" params--> "+"s="+s); f_num++;
+    private static String remove_redundant_plus_and_minus_sign(String s){
         int i=0; String tempString="";
         int k=0; boolean l=false;
         while(i<s.length()){
@@ -196,14 +120,62 @@ public class EvaluateString{
         return tempString;
     }
 
-    private static void add_or_subtract(String s){
-        Log.d("mytag",f_num+". "+"add_or_subtract"+" params--> "+"s="+s); f_num++;
-        Pattern p2=Pattern.compile(DEC_PAT);
-        int i=s.length()-1; String str=""; double num=0;
+    private static void divide_or_multiply(int operator_position,char operator){
+        String number1="",number2="",left_of_number1="",right_of_number2=""; 
+        double result;
+        int j; 
+
+        j=operator_position-1;
+        while(true){
+            j=j-1;
+            if(j==-1){
+                break;
+            }
+            if(process_equation.charAt(j)==MINUS || process_equation.charAt(j)==PLUS || process_equation.charAt(j)==MULTIPLY || process_equation.charAt(j)==DIVIDE){    
+                left_of_number1=process_equation.substring(0,j+1);
+                break;
+            }
+        }
+        number1=process_equation.substring(j+1, operator_position);
+
+        j=operator_position+1;
+        while(true){
+            j=j+1;
+            if(j==process_equation.length()){ 
+                break;
+            }
+            if(process_equation.charAt(j)==MINUS || process_equation.charAt(j)==PLUS || process_equation.charAt(j)==MULTIPLY || process_equation.charAt(j)==DIVIDE){
+                right_of_number2=process_equation.substring(j, process_equation.length());
+                break;
+            }
+        }
+        number2=process_equation.substring(operator_position+1, j);
+        
+        if(length_of_the_number(number1)>number_max_size || length_of_the_number(number2)>number_max_size){
+            number_too_large=true;
+        }
+        else{
+            if(operator==DIVIDE){
+                result=Double.parseDouble(number1)/Double.parseDouble(number2);
+                process_equation=left_of_number1+trim_decimals(String.format("%.5f",result))+right_of_number2;
+            }
+            if(operator==MULTIPLY){
+                result=Double.parseDouble(number1)*Double.parseDouble(number2);
+                process_equation=left_of_number1+trim_decimals(String.format("%.5f",result))+right_of_number2;
+            }
+        }
+
+    }
+
+
+    private static String add_or_subtract(String s){
+        int i=s.length()-1; 
+        String answer,str=""; 
+        double num=0;
         while(i!=-1){
             str=s.charAt(i)+str;
             if(MINUS==s.charAt(i) || PLUS==s.charAt(i) || i==0){
-                if(len_of_num(str)>number_max_size){
+                if(length_of_the_number(str)>number_max_size){
                     number_too_large=true;
                 }
                 else{
@@ -214,64 +186,54 @@ public class EvaluateString{
             i=i-1;
         }
         answer=String.format("%.5f",num);
-        int f=answer.length()-1; String temp="";
-        while(answer.charAt(f)=='0'){
+
+        return trim_decimals(answer);
+    }
+
+    private static String trim_decimals(String s){
+        int f; String tmp="";
+        f=s.length()-1;
+        while(s.charAt(f)=='0'){
             f=f-1;
         }
-        if(answer.charAt(f)=='.'){
+        if(s.charAt(f)=='.'){
             f=f-1;
         }
         while(f>-1){
-            temp=answer.charAt(f)+temp;
+            tmp=s.charAt(f)+tmp;
             f=f-1;
         }
-        answer=temp;
+        return tmp;
     }
 
-    private static String look_for_brackets(String s){
-        Log.d("mytag",f_num+". "+"look_for_brackets"+" params--> "+"s="+s); f_num++;
-        int leftBracketPosition=0,rightBracketPosition=0,i=0;
-        String s1="";
-        while(true){
-            if(i<s.length()){
-                if(LEFTBRACKET==s.charAt(i)){
-                    leftBracketPosition=i;
-                }
-                else if(RIGHTBRACKET==s.charAt(i)){
-                    rightBracketPosition=i;
-                    s1=separate_the_string(leftBracketPosition,rightBracketPosition,s);
-                    break;
-                }
+    private static int length_of_the_number(String x){
+        int y=x.length(); int j=0; int val=0;
+        for(int i=0;i<y;i++){
+            if(x.charAt(i)=='.'){
+                j=i;
+            }
+        }
 
+        if(j==0){
+            if(x.charAt(0)=='+'||x.charAt(0)=='-'){
+                val= y-1;
             }
             else{
-                s1=s;
-                break;
+                val= y;
             }
-            i++;
+
         }
-        return s1;
+        else{
+            if(x.charAt(0)=='+'||x.charAt(0)=='-'){
+                val= j-1;
+            }
+            else{
+                val= j;
+            }
+
+        }
+        return val;
     }
 
-    private static String separate_the_string(int a,int b,String s){
-        Log.d("mytag",f_num+". "+"separate_the_string"+" params--> "+"s="+s+", a,b="+a+","+b); f_num++;
-        String midStr="",leftStr="",rightStr="",evalStr="",joinedStr="";
-        int i=0,j=b+1;
-        while(i<a){
-            leftStr=leftStr+s.charAt(i);
-            i++;
-        }
-        while(j<s.length()){
-            rightStr=rightStr+s.charAt(j);
-            j++;
-        }
-        while(a<b-1){
-            a++;
-            midStr=midStr+s.charAt(a);
-        }
-        left_of_equation=leftStr;
-        right_of_equation=rightStr;
-        return midStr;
-    }
     
 }

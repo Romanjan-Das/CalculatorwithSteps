@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     makeTextBig(true);
-                    textView2.setText(OldInput);
+                    textView2.setText(EvaluateString.steps);
                 }
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);
@@ -313,7 +313,6 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         textView.setText(StringFormation.input_string);
                     }
-                    //textView2.setText(EvaluateString.steps);
                     EvaluateString.steps="";
                     StringFormation.equal_is_pressed=true;
                 }

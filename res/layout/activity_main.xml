@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,12 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/varelaround"
+            android:gravity="bottom"
+            android:maxHeight="150dp"
             android:padding="1dp"
             android:paddingEnd="10dp"
             android:text=" "
             android:textAlignment="textEnd"
             android:textColor="@android:color/darker_gray"
-            android:textSize="16sp"
+            android:textSize="14sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
@@ -54,7 +56,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button3"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -63,12 +64,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="("
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button2"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -77,12 +78,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text=")"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button4"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -91,6 +92,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp"
                 app:icon="@drawable/del_small"
@@ -102,7 +104,6 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button6"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -111,6 +112,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="/"
                 android:textColor="@color/teal_200"
                 android:textSize="36sp" />
@@ -122,7 +124,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button22"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -131,12 +132,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="1"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button21"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -145,12 +146,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="2"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button20"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -159,12 +160,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="3"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button19"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -173,6 +174,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="×"
                 android:textColor="@color/teal_200"
                 android:textSize="36sp" />
@@ -184,7 +186,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button18"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -193,12 +194,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="4"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button17"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -207,12 +208,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="5"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button16"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -221,12 +222,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="6"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button15"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -235,6 +236,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="+"
                 android:textColor="@color/teal_200"
                 android:textSize="36sp" />
@@ -246,7 +248,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button14"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -255,12 +256,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="7"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button13"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -269,12 +270,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="8"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button12"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -283,12 +284,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="9"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button11"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -297,6 +298,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="−"
                 android:textColor="@color/teal_200"
                 android:textSize="36sp" />
@@ -308,7 +310,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button10"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -317,13 +318,13 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="C"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button9"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -332,12 +333,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="0"
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button8"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -346,12 +347,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="."
                 android:textColor="@color/dark_grey"
                 android:textSize="28sp" />
 
             <Button
-                android:fontFamily="@font/varelaround"
                 android:id="@+id/button7"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="wrap_content"
@@ -360,6 +361,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:fontFamily="@font/varelaround"
                 android:text="="
                 android:textColor="@color/teal_200"
                 android:textSize="36sp" />
