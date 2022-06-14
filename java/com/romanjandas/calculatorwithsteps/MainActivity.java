@@ -4,15 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView,textView2;
     Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del,clear;
-    private static String OldInput=""; private static String tooLarge="Number too large";
+    FloatingActionButton show_steps;
+    private static String OldInput="",tooLarge="Number too large",temp_step="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         bde=findViewById(R.id.button8);
         del=findViewById(R.id.button4);
         clear=findViewById(R.id.button10);
+        show_steps=findViewById(R.id.floatingActionButton);
+        show_steps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParams.gravity= Gravity.TOP;
+                textView2.setText(temp_step);
+            }
+        });
 
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -295,7 +311,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     makeTextBig(true);
-                    textView2.setText(EvaluateString.steps);
+                    temp_step=EvaluateString.steps;
+                    textView2.setText(OldInput);
+
                 }
                 if(!StringFormation.result.equals("")){
                     //textView.setText(StringFormation.result);

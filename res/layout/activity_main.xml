@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|center_horizontal"
@@ -21,21 +22,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/textView2"
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/varelaround"
-            android:gravity="bottom"
-            android:maxHeight="150dp"
-            android:padding="1dp"
-            android:paddingEnd="10dp"
-            android:text=" "
-            android:textAlignment="textEnd"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="14sp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_height="100dp"
+            android:contentDescription="inside text">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutIndiseScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/varelaround"
+                    android:gravity="end"
+                    android:maxHeight="150dp"
+                    android:padding="1dp"
+                    android:paddingEnd="10dp"
+                    android:text=" "
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+        </ScrollView>
 
         <TextView
             android:id="@+id/textView"
@@ -51,6 +67,7 @@
             android:textSize="30sp" />
 
         <LinearLayout
+            android:id="@+id/L1"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
@@ -119,6 +136,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/L2"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
@@ -181,6 +199,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/L3"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
@@ -243,6 +262,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/L4"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
@@ -305,6 +325,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/L5"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
@@ -368,4 +389,18 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="15dp"
+        android:clickable="true"
+        android:contentDescription="show steps"
+        app:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
