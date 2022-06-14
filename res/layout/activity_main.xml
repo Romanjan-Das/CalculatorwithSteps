@@ -8,10 +8,28 @@
     android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/varelaround"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="bottom|center_horizontal"
         android:orientation="vertical"
         android:padding="15dp"
@@ -22,36 +40,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <ScrollView
-            android:id="@+id/scrollView"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:contentDescription="inside text">
-
-            <LinearLayout
-                android:id="@+id/linearLayoutIndiseScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/varelaround"
-                    android:gravity="end"
-                    android:maxHeight="150dp"
-                    android:padding="1dp"
-                    android:paddingEnd="10dp"
-                    android:text=" "
-                    android:textAlignment="textEnd"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/varelaround"
+            android:gravity="end"
+            android:maxHeight="150dp"
+            android:padding="1dp"
+            android:paddingEnd="10dp"
+            android:text=" "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textView"

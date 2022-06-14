@@ -16,10 +16,11 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView,textView2;
+    TextView textView,textView2,textView4;
     Button brb,blb,bdi,b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmu,bpl,bmi,beq,bde,del,clear;
-    FloatingActionButton show_steps;
+    FloatingActionButton show_steps; LinearLayout linearLayout3;
     private static String OldInput="",tooLarge="Number too large",temp_step="";
+    private static boolean show_steps_status=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +47,25 @@ public class MainActivity extends AppCompatActivity {
         bde=findViewById(R.id.button8);
         del=findViewById(R.id.button4);
         clear=findViewById(R.id.button10);
+        textView4=findViewById(R.id.textView4);
+        linearLayout3=findViewById(R.id.linearLayout3);
         show_steps=findViewById(R.id.floatingActionButton);
+
         show_steps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                layoutParams.gravity= Gravity.TOP;
-                textView2.setText(temp_step);
+                if(show_steps_status) {
+                    linearLayout3.setVisibility(View.GONE);
+                    textView4.setVisibility(View.VISIBLE);
+                    textView4.setText(temp_step);
+                    show_steps_status=false;
+                }
+                else {
+                    linearLayout3.setVisibility(View.VISIBLE);
+                    textView4.setVisibility(View.GONE);
+                    textView4.setText("");
+                    show_steps_status=true;
+                }
             }
         });
 
